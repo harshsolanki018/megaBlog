@@ -1,9 +1,18 @@
-
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import AuthService from './appwrite/auth'
 
 import './App.css'
-
 function App() {
-  console.log(import.meta.env.VITE_APPWRITE_URL)
+  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    AuthService.getCurrentUser()
+    .then()
+    .finally()
+  },[])
+
  
   return (
     <>
