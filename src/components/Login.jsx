@@ -18,8 +18,8 @@ function Login() {
             const session = await authService.login(data) 
             if (session) {
                 const userData = await authService.getCurrentUser()
-                if(userData) dispatch(authLogin(userData))
-                    navigate("/")
+                if(userData) dispatch(authLogin(userData));
+                navigate("/")
             }
         } catch (error) {
             setError(error.message)
@@ -54,8 +54,9 @@ function Login() {
                     type = "email"
                     {...register("email",{
                         required: true,
-                        matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || 
-                        "Email address must be a valid address",
+                        validate:{
+                            matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || 
+                            "Email address must be a valid address",}
                     })}
                     />
 
@@ -68,6 +69,8 @@ function Login() {
                     })}
                     />
                     <Button
+                    type="submit"
+                    className= "w-full"
                     >Sign In</Button>
                 </div>
             </form>
