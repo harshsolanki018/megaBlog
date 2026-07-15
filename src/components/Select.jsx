@@ -4,7 +4,7 @@ function Select({
     options,
     label,
     className = '',
-    ...props,
+    ...props
 }, ref) {
     return (
         <div className='w-full'>
