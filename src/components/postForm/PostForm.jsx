@@ -15,11 +15,11 @@ function PostForm({post}) {
         },
     }) 
     const navigate = useNavigate()
-    const userData = useSelector(state => state.user.userData)
+    const userData = useSelector(state => state.auth.userData)
 
     const submit = async(data) => {
         if (post) {
-            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null;
 
             if (file) {
                 appwriteService.deleteFile(post.featuredImage)
@@ -56,7 +56,7 @@ function PostForm({post}) {
             return value
             .trim()
             .toLowerCase()
-            .replace(/^[a-zA-Z\d\s]+/g, '-')
+            .replace(/[^a-zA-Z\d\s]+/g, '-')
             .replace(/\s/g, '-')
 
             return ''
