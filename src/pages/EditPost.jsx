@@ -13,7 +13,7 @@ function EditPost() {
         if (slug) {
             appwriteService.getPost(slug).then((post)=>{
                 if (slug) {
-                    setPosts(post)
+                    setPost(post)
                 }
             })
         }else {
@@ -24,10 +24,10 @@ function EditPost() {
     return post ? (
         <div className='py-8'>
             <Container>
-                <PostCard post={post}/>
+                <PostCard {...post}/>
             </Container>
         </div>
-    ) : nul
+    ) : null
 }
 
 export default EditPost

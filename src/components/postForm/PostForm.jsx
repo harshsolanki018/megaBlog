@@ -106,6 +106,7 @@ function PostForm({post}) {
                     className="mb-4"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
+                    
                 />
                 {post && (
                     <div className="w-full mb-4">
